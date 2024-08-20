@@ -26,62 +26,56 @@ public class Homework2 extends CommonMethods {
 
 		/* Log in */
 		sendText(driver.findElement(By.id("txtUsername")), Configs_Reader.getProperty("username"));
-		
+
 		sendText(driver.findElement(By.id("txtPassword")), Configs_Reader.getProperty("password"));
-		
+
 		click(driver.findElement(By.xpath("//button[@type='submit']")));
 
 		/* Go to PIM menu and Add an employee */
-		waitForVisibilty(driver.findElement(By.className("page-title")));
-		
+		waitForVisibility((By.className("page-title")));
+
 		click(driver.findElement(By.xpath("//span[text()='PIM']")));
-		
+
 		click(driver.findElement(By.xpath("//span[text()='Add Employee']")));
 
 		/* Fill in employee details */
-		waitForVisibilty(driver.findElement(By.className("page-title")));
-		
-		sendText(driver.findElement(By.id("first-name-box")), Configs_Reader.getProperty("firstName"));
-		
+		waitForVisibility((By.xpath("//h5[text()='Add Employee']")));
+
+		sendText(driver.findElement(By.xpath("//input[@id='first-name-box']")),
+				Configs_Reader.getProperty("firstName"));
+
 		sendText(driver.findElement(By.id("last-name-box")), Configs_Reader.getProperty("lastName"));
-		
+
 		selectDropdown(driver.findElement(By.id("location")), 5);
 
 		wait(1);
+		
 		click(driver.findElement(By.id("modal-save-button")));
-		wait(2);
 
 		/* Go to Employee List and select the employee */
-		waitForVisibilty(driver.findElement(By.xpath("//h4[text()='Personal Details']")));
+		waitForVisibility((By.xpath("//h4[text()='Personal Details']")));
 		
 		click(driver.findElement(By.xpath("//span[text()='Employee List']")));
-		
+
 		wait(5);
 
 		/* Loop to search for the employee you added */
 		List<WebElement> cells = driver.findElements(By.xpath("//table/tbody/tr/td"));
-		
+
 		String employeeName = Configs_Reader.getProperty("firstName") + " " + Configs_Reader.getProperty("lastName");
 
 		for (WebElement cell : cells) {
-		   
-		    String cellText = cell.getText();
-		    
-		    if (cellText.equals(employeeName)) {
-		        cell.click();
-		        break;
-		    }
-		}
-		
-		wait(4);
-		
-		// Save employee details and take a screenshot
-		//waitForClickability(driver.findElement(By.xpath("//button[text()='Save']")));
-		//click(driver.findElement(By.xpath("//button[text()='Save']")));
 
-		//wait(4);
-		
-		
+			String cellText = cell.getText();
+
+			if (cellText.equals(employeeName)) {
+				cell.click();
+				break;
+			}
+		}
+
+		wait(4);
+
 		takeScreenshot(driver, "homework");
 
 		tearDown();

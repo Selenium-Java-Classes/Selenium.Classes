@@ -13,7 +13,6 @@ public class WaitExplicit extends CommonMethods {
 
 		setUp();
 
-		waitForVisibilty(driver.findElement(By.id("button1")));
 
 		WebElement button = driver.findElement(By.id("button1"));
 

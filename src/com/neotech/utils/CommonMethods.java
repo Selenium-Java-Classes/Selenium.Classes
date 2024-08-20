@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
@@ -278,8 +279,8 @@ public class CommonMethods extends BaseClass {
 	 * 
 	 * @param element
 	 */
-	public static WebElement waitForVisibilty(WebElement element) {
-		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
+	public static WebElement waitForVisibility(By locator){
+		return getWaitObject().until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 	/**
