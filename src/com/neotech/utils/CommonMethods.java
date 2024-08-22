@@ -192,7 +192,7 @@ public class CommonMethods extends BaseClass {
 	 * 
 	 * @param text
 	 */
-	public static void sendAletText(String text) {
+	public static void sendAlertText(String text) {
 
 		try {
 			Alert alert = driver.switchTo().alert();
@@ -348,7 +348,7 @@ public class CommonMethods extends BaseClass {
 
 			Files.copy(srcFile, screenShotLocation);
 
-			System.out.println("Screenshot saved: " + screenShotLocation.getAbsolutePath());
+			System.out.println("Screenshot saved: " + screenShotLocation.getPath());
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -378,7 +378,7 @@ public class CommonMethods extends BaseClass {
 				screenShotsDir.mkdirs();
 			}
 
-			Path screenShotLocation = Paths.get("screenshots/HRM/" + fileName);
+			Path screenShotLocation = Paths.get("screenshots/Tasks/" + fileName);
 			Files.copy(srcFile, screenShotsDir);
 
 			System.out.println("Element screenshot saved: " + screenShotLocation.toString());
