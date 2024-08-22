@@ -28,6 +28,7 @@ public class Configs_Reader {
 			e.printStackTrace();
 
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("I couldn't read the file!!!");
 		}
 
