@@ -1,0 +1,65 @@
+-> POM stands for Page Object Model
+-> 1. For each page create an object
+-> 2. Give an attribute to the object for each element found on the web application page
+-> 3. When you create an object of POM it will search for them immediately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Steps
+1. Cteate a class under "page" package				 --> Login.page
+2. Extends the class to CommonMethods class			 --> public class Login extends CommonMethods {}
+3. Create WebElements inside of the Login.page class --> public WebElement username = driver.findElement();
+4. Create object using page class name				 --> Login log = new Login();
+5. Access the WebElement over object				 --> log.username
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The reason why we are doing like this;
+-> If you were to create an object without the page being there (not load) --> will throw a NoSuchElementException 
+
+-----------------------------------------------------------------------------------------
+
+PageFactory
+-> PageFactory has lazy-initilazition 
+-> Lazy-initilazition  --> Do not init everything, do not search them as soon as we create an object
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Steps of creating page class
+1. You are using --> @FindBy
+2. Write the locater inside of it -> @FindBy(xpath=" ")
+3. Create a public WebElement     -> public WebElement <name>;
+
+~ Lazy-initilazition
+4. Create a constructor 		  -> public LoginPage_Factory() {
+										PageFactory.initElements(BaseClass.driver, this); }
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Note1: 
+-> You will use initelements() method
+-> Inside of the method you will write (<driver + instance of driver>, this)
+-> this refer to -> this particular page that you are in
+-> .initElements(BaseClass.driver, this);
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Steps of using the page factory
+1. Create an object using page class name  -> LoginPage_Factory login = new LoginPage_Factory();
+2. Access the WebElement over object	   -> login.username
+3. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

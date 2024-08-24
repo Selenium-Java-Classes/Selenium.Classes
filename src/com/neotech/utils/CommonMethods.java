@@ -12,6 +12,7 @@ import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.OutputType;
@@ -372,7 +373,7 @@ public class CommonMethods extends BaseClass {
 
 			File srcFile = element.getScreenshotAs(OutputType.FILE);
 
-			File screenShotsDir = new File("screenshots/HRM");
+			File screenShotsDir = new File("screenshots");
 
 			if (!screenShotsDir.exists()) {
 				screenShotsDir.mkdirs();
@@ -401,6 +402,72 @@ public class CommonMethods extends BaseClass {
 		Select dropdown = new Select(element);
 		dropdown.selectByIndex(index);
 	}
+	
+	/**
+	 * This method will cast the driver to a JavascriptExecutor obejct and return it
+	 * 
+	 * @return
+	 */
+	public static JavascriptExecutor getJSObject() {
+		return (JavascriptExecutor) driver;
+	}
+	
+	/**
+	 * This method is a click method of JavascriptExecutor, it will click on the element 
+	 * 
+	 * @param element
+	 */
+	public static void jsClick(WebElement element) {
+		getJSObject().executeScript("aguments[0].click()", element);
+	}
+	
+	/**
+	 * This method scrolls the page until a specific element is in view
+	 * 
+	 * @param element
+	 */
+	public static void scrollToElement(WebElement element) {
+		getJSObject().executeScript("arguments[0].scrollIntoView(true)", element);
+	}
+	
+	/**
+	 * This method will scroll the page down since the y-pixels is positive
+	 * 
+	 * @param pixels
+	 */
+	public static void scrollDown(int pixels) {
+		getJSObject().executeScript("window.scrollBy(0, " + pixels + ")");
+	}
+	
+	/**
+	 * This method will scroll the page up since the x-pixels is negative
+	 * 
+	 * @param pixels
+	 */
+	public static void scrollUp(int pixels) {
+		getJSObject().executeScript("window.scrollBy(0, -" + pixels + ")");
+	}
+	
+	/**
+	 * This method will select a date on a calendar which elements are prvided as the first parameter 
+	 * select the date that is the second parameter
+	 * 
+	 * @param elements
+	 * @param date
+	 */
+	public static void selectCalendarDate(List<WebElement>elements, String date) {
+		for(WebElement day : elements) {
+			if(day.getText().equals(date)) {
+				if(day.isEnabled()) {
+					click(day);
+				} else {
+					System.out.println("This day is not enabled!!");
+					break;
+				}
+			}
+		}
+	}
+	
 }
 
 // Note1: Common Methods --> sendText(), click(), switchToFrame()
