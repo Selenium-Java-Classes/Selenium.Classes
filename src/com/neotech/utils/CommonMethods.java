@@ -472,7 +472,7 @@ public class CommonMethods extends BaseClass {
 
 // Note1: Common Methods --> sendText(), click(), switchToFrame()
 
-// Note2: sendText() --> fir we clear the text if there is one, ad then send the text
+// Note2: sendText() --> for we clear the text if there is one, ad then send the text
 
 // Note3: clickOn() --> We are clicking the "checkboxes" or "radio buttons""
 // Note4: The point of it, we are putting web-elements in a list and then loop through
