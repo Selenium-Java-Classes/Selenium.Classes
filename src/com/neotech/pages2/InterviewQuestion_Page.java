@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.neotech.utils.BaseClass;
 
-public class Task1Page extends BaseClass {
+public class InterviewQuestion_Page extends BaseClass {
 
 	@FindBy(xpath = "/html/body/div[2]/div/div[1]/div[2]/div/div[1]/div[3]/div/div/form/div/div/div/input")
 	public WebElement searchBox;
@@ -34,7 +34,7 @@ public class Task1Page extends BaseClass {
 	@FindBy(xpath = "//div[@class='itemDelete']/button[@type='button']")
 	public WebElement delete;
 
-	public Task1Page() {
+	public InterviewQuestion_Page() {
 		PageFactory.initElements(driver, this);
 	}
 }

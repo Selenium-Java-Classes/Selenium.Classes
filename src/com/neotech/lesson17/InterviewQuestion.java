@@ -7,7 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import com.neotech.pages2.Task1Page;
+import com.neotech.pages2.InterviewQuestion_Page;
 import com.neotech.utils.CommonMethods;
 
 //Go to https://www.webstaurantstore.com/
@@ -16,14 +16,14 @@ import com.neotech.utils.CommonMethods;
 //    Add the last of found items to the Cart.
 //    Empty the Cart.
 
-public class task1 extends CommonMethods {
+public class InterviewQuestion extends CommonMethods {
 
 	public static void main(String[] args) {
 
 		setUp();
 
 		/* Search for 'stainless work table'. */
-		Task1Page page = new Task1Page();
+		InterviewQuestion_Page page = new InterviewQuestion_Page();
 
 		Actions action = new Actions(driver);
 
