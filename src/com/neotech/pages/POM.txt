@@ -46,7 +46,6 @@ Note1:
 Steps of using the page factory
 1. Create an object using page class name  -> LoginPage_Factory login = new LoginPage_Factory();
 2. Access the WebElement over object	   -> login.username
-3. 
 
 
 

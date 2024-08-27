@@ -280,6 +280,15 @@ public class CommonMethods extends BaseClass {
 	 * 
 	 * @param element
 	 */
+	public static WebElement waitForVisibility(WebElement element){
+		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	/**
+	 * This method will wait for the element of locater is to be visible
+	 * 
+	 * @param element
+	 */
 	public static WebElement waitForVisibility(By locator){
 		return getWaitObject().until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
