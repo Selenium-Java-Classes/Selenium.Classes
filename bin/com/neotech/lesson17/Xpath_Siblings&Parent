@@ -1,0 +1,42 @@
+
+									Sibling XPath
+
+-> Siblings are elements that share the same parent.
+-> You can select sibling elements by navigating from one element to its sibling.
+
+Example: Use the sibling of the first paragraph:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div>
+    <p id="first">First Paragraph</p>
+    <p id="second">Second Paragraph</p>
+    <p id="third">Third Paragraph</p>
+</div>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next Sibling XPath	   -> //p[@id='first']/following-sibling::p[1]
+Previous Sibling XPath -> //p[@id='second']/preceding-sibling::p[1]
+
+Note1: For you to choose NEXT SIBLING 	  -> following-sibling::
+Note2: For you to choose PREVIOUS SIBLING -> preceding-sibling::
+
+Note3: When you use " //p[@id='first']/following-sibling::p[1] " xpath  -> it will select the NEXT sibling which is the "second paragraph"
+Note4: When you use " //p[@id='second']/preceding-sibling::p[1] " xpath -> it will select the PREVIOUS sibling which is the "first paragraph"
+
+Note5: Use "following-sibling::" or "preceding-sibling::" to navigate BETWEEN SIBLINGS.
+
+
+------------------------------------------------------------------------------------------------------
+
+									Parent XPath
+									
+Example: Select the parent of the first paragraph
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<div>
+    <p id="first">First Paragraph</p>
+</div>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Parent XPath -> //p[@id='first']/parent::div
+
+Note1: This XPath selects the parent <div> of the paragraph with id='first'.
+Note2: Use "parent::" to navigate from a child element to its parent
